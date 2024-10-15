@@ -1,7 +1,7 @@
 import { useState } from "react";
 import MessageForm from "./components/MessageForm"
-import Card from 'react-bootstrap/Card';
-import './App.css';
+import { Row, Col, Card } from 'react-bootstrap';
+
 const App: React.FC = () => {
   const [prediction, setPrediction] = useState<string>('');
   const [error, setError] = useState<string | null>(null);
@@ -42,20 +42,31 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="App">
-      <Card className='col-5'>
-        <Card.Header><h1>SMS Classifier</h1></Card.Header>
-        <Card.Body>
+    <div className="App mt-5">
+      <Row className="justify-content-center">
+      <Col md={5}>
+        <Card className='mb-4'>
+          <Card.Header><h1>SMS Classifier</h1></Card.Header>
+          <Card.Body>
             {/* MessageForm component for input */}
-            <MessageForm onSubmit={handleSubmit} isLoading = {isLoading} />
+            <MessageForm onSubmit={handleSubmit} isLoading={isLoading} />
             {/* Error Handling */}
             {error && <p style={{ color: 'red' }}>{error}</p>}
-            
-            {prediction &&  <Card>
-                              <Card.Body>Prediction: {prediction}</Card.Body>
-                            </Card>}
-        </Card.Body>
+          </Card.Body>
         </Card>
+      </Col>
+    </Row>
+
+    <Row className="justify-content-center">
+      <Col md={5}>
+        {prediction && (
+          <Card>
+            <Card.Header><h3>Result</h3></Card.Header>
+            <Card.Body>Prediction: {prediction}</Card.Body>
+          </Card>
+        )}
+      </Col>
+    </Row>
     </div>
   );
 }

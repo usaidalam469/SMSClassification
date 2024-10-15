@@ -14,8 +14,10 @@ const MessageForm: React.FC<MessageFormProps>= ({ onSubmit,isLoading }) => {
     // Handle form submission
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
       event.preventDefault();
-      onSubmit(message);  // Pass the message to the parent component
-      setMessage('');  // Clear the form after submission
+      // Pass the message to the parent component
+      onSubmit(message); 
+      // Clear the form after submission
+      setMessage('');  
     };
   
     return (
@@ -24,7 +26,6 @@ const MessageForm: React.FC<MessageFormProps>= ({ onSubmit,isLoading }) => {
             <Form.Control
                 type="text"
                 id="message"
-                aria-describedby="passwordHelpBlock"
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 placeholder="Enter your message"
