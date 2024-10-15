@@ -1,0 +1,54 @@
+# Django .gitignore
+*.log
+*.pot
+*.pyc
+__pycache__/
+db.sqlite3
+media/
+staticfiles/
+
+# If you are using virtualenv
+venv/
+env/
+
+# If you are using Docker
+*.log
+*.pid
+*.seed
+*.cover
+*.py[cod]
+*.pyo
+.Python
+.env
+.env.*
+
+# Django cache
+*.cache
+
+# Django migrations
+*/migrations/*
+
+# If you are using pytest
+.pytest_cache/
+
+# IDE files
+.idea/
+.vscode/
+
+# React .gitignore
+node_modules/
+build/
+.env
+.DS_Store
+
+# Optional: if you're using npm or Yarn for package management
+package-lock.json
+yarn.lock
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Coverage directory used by tools like istanbul/jest
+coverage/
