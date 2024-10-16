@@ -16,6 +16,7 @@ def predict(request):
     message = request.data.get('message', '')
     if not message or message.strip() == "":
         return Response({'error': 'No message provided'}, status=status.HTTP_400_BAD_REQUEST)
+    
     cleaned_message = preprocess_text(message)
     # Creating a DataFrame to match the input format of the model
     input_data = pd.DataFrame([cleaned_message], columns=['message'])
@@ -26,6 +27,6 @@ def predict(request):
     # Return the prediction result
     response_data = {
         'message': message,
-        'prediction': 'ham' if int(prediction[0]) == 0 else 'spam',
+        'prediction': 'Ham' if int(prediction[0]) == 0 else 'Spam',
     }
     return Response(response_data, status=status.HTTP_200_OK)
